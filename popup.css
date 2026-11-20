@@ -1,0 +1,51 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+body {
+  width: 290px; margin: 0; padding: 12px 14px 10px;
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #1f2328; background: #fff;
+}
+a { color: #1f5fbf; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+header img { border-radius: 6px; }
+.name { font-weight: 700; font-size: 14px; }
+.ver { font-size: 11px; opacity: .55; }
+
+#np {
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px; margin-bottom: 12px; border-radius: 6px;
+  background: rgba(128,128,128,.09);
+}
+#np[hidden] { display: none; }
+#npCover { width: 38px; height: 38px; border-radius: 3px; object-fit: cover; flex: none; background: rgba(128,128,128,.2); }
+.np-text { min-width: 0; }
+.np-label { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #d0333b; }
+.np-label.past { color: inherit; opacity: .55; }
+.np-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.form label { display: block; font-size: 11px; font-weight: 600; opacity: .7; margin: 0 0 3px; }
+.form .row { position: relative; margin-bottom: 10px; }
+input, select {
+  width: 100%; padding: 5px 7px; font: inherit; color: inherit;
+  border: 1px solid rgba(128,128,128,.4); border-radius: 4px; background: transparent;
+}
+select { margin-bottom: 10px; }
+input:focus, select:focus { outline: 2px solid rgba(31,95,191,.35); outline-offset: 0; border-color: #1f5fbf; }
+.saved { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 11px; color: #2a8a3e; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.saved.show { opacity: 1; }
+
+nav { display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid rgba(128,128,128,.2); }
+nav a[hidden] { display: none; }
+#linkCount { opacity: .55; }
+
+footer {
+  display: flex; gap: 6px; align-items: center; padding-top: 8px;
+  border-top: 1px solid rgba(128,128,128,.2); font-size: 11px; opacity: .8;
+}
+
+@media (prefers-color-scheme: dark) {
+  body { color: #e6e6e6; background: #1f2226; }
+  a { color: #7fb0ff; }
+}

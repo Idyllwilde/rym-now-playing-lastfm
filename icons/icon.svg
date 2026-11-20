@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="#d0333b"/>
+  <!-- vinyl record -->
+  <circle cx="54" cy="64" r="38" fill="#161616"/>
+  <circle cx="54" cy="64" r="31" fill="none" stroke="#3a3a3a" stroke-width="2"/>
+  <circle cx="54" cy="64" r="24" fill="none" stroke="#3a3a3a" stroke-width="2"/>
+  <circle cx="54" cy="64" r="14" fill="#ffffff"/>
+  <circle cx="54" cy="64" r="3.5" fill="#d0333b"/>
+  <path d="M30 44 A30 30 0 0 1 48 35" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+  <!-- now-playing bars -->
+  <g fill="#ffffff" stroke="#d0333b" stroke-width="4" paint-order="stroke">
+    <rect x="78"  y="60" width="11" height="38" rx="3"/>
+    <rect x="93"  y="40" width="11" height="58" rx="3"/>
+    <rect x="108" y="72" width="11" height="26" rx="3"/>
+  </g>
+</svg>

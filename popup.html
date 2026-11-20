@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="" width="28" height="28">
+    <div>
+      <div class="name">RYM Now Playing (Last.fm)</div>
+      <div class="ver" id="ver"></div>
+    </div>
+  </header>
+
+  <section id="np" hidden>
+    <img id="npCover" alt="">
+    <div class="np-text">
+      <div class="np-label" id="npLabel"></div>
+      <div class="np-title" id="npTitle"></div>
+    </div>
+  </section>
+
+  <section class="form">
+    <label for="lastfmUser">Last.fm username</label>
+    <div class="row">
+      <input id="lastfmUser" placeholder="your Last.fm username" autocomplete="off" spellcheck="false">
+      <span class="saved" id="saved">Saved</span>
+    </div>
+
+    <label for="refreshSec">Refresh while your profile is open</label>
+    <select id="refreshSec">
+      <option value="15">every 15 seconds</option>
+      <option value="30">every 30 seconds</option>
+      <option value="60">every minute</option>
+      <option value="300">every 5 minutes</option>
+    </select>
+  </section>
+
+  <nav>
+    <a id="profileLink" href="#" target="_blank" hidden>Open my RYM profile</a>
+    <a id="resetLinks" href="#">Reset saved RYM links <span id="linkCount"></span></a>
+  </nav>
+
+  <footer>
+    <a id="repoLink" href="#" target="_blank">GitHub</a>
+    <span>·</span>
+    <span>Data from <a href="https://www.last.fm" target="_blank">Last.fm</a></span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

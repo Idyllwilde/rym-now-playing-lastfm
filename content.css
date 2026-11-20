@@ -1,0 +1,84 @@
+/* Now playing block inside RYM's "Listening to" card on your own profile. */
+#rls-np {
+  display: flex; align-items: center; gap: 12px;
+  flex: 0 1 auto; min-width: 0;
+  margin-left: 32px; padding-left: 28px;
+  border-left: 1px solid rgba(128, 128, 128, 0.25);
+  font-family: inherit; line-height: 1.35;
+}
+#rls-np[hidden] { display: none; }
+
+#rls-np .rls-cover {
+  width: 45px; height: 45px; flex: none;   /* same as RYM's own play-history cover */
+  object-fit: cover; border-radius: 3px;
+}
+#rls-np .rls-cover-empty { background: rgba(128, 128, 128, 0.15); }
+
+#rls-np .rls-info { min-width: 0; }
+#rls-np .rls-label {
+  font-size: 0.72em; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  white-space: nowrap;
+}
+#rls-np .rls-live { color: #d0333b; }
+#rls-np .rls-past { opacity: 0.6; }
+#rls-np .rls-src { font-weight: 400; letter-spacing: 0; text-transform: none; opacity: 0.5; }
+
+#rls-np .rls-bars {
+  display: inline-flex; align-items: flex-end; gap: 2px;
+  height: 9px; margin-right: 5px; vertical-align: -1px;
+}
+#rls-np .rls-bars i {
+  display: block; width: 3px; background: currentColor;
+  animation: rls-eq 0.9s ease-in-out infinite;
+}
+#rls-np .rls-bars i:nth-child(2) { animation-delay: -0.3s; }
+#rls-np .rls-bars i:nth-child(3) { animation-delay: -0.6s; }
+@keyframes rls-eq { 0%, 100% { height: 3px; } 50% { height: 9px; } }
+@media (prefers-reduced-motion: reduce) { #rls-np .rls-bars i { animation: none; height: 7px; } }
+
+/* Artist and album share one line; the artist gets at most half so the album always shows. */
+#rls-np .rls-title {
+  display: flex; font-size: 1.05em; white-space: nowrap; max-width: 360px; min-width: 0;
+}
+#rls-np .rls-artist {
+  font-weight: 700; flex: 0 1 auto; max-width: 50%;
+  overflow: hidden; text-overflow: ellipsis;
+}
+#rls-np .rls-title .album { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+#rls-np .rls-sep { flex: none; white-space: pre; opacity: 0.6; }
+#rls-np .rls-track {
+  font-size: 0.88em; opacity: 0.6;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 360px;
+}
+#rls-np .rls-msg { font-size: 0.85em; color: #d0333b; }
+
+#rls-np .rls-actions { display: flex; align-items: center; gap: 6px; margin-left: 10px; flex: none; }
+#rls-np .rls-btn {
+  display: inline-block; padding: 3px 10px; border-radius: 3px;
+  font-size: 0.85em; font-weight: 600; text-decoration: none; color: inherit;
+  border: 1px solid rgba(128, 128, 128, 0.35); background: rgba(128, 128, 128, 0.08);
+}
+#rls-np .rls-btn:hover { background: rgba(128, 128, 128, 0.16); }
+#rls-np .rls-textbtn { font-size: 0.85em; opacity: 0.65; }
+#rls-np .rls-textbtn:hover { opacity: 1; }
+#rls-np .rls-muted { font-size: 0.85em; opacity: 0.6; }
+#rls-np .rls-disabled { opacity: 0.55; cursor: default; pointer-events: none; }
+#rls-np .rls-input {
+  width: 260px; max-width: 100%; min-width: 120px; flex: 0 1 260px; padding: 3px 6px; font: inherit; font-size: 0.85em;
+  border: 1px solid rgba(128, 128, 128, 0.4); border-radius: 3px;
+  background: transparent; color: inherit;
+}
+
+/* Narrower windows: buttons move under the text instead of beside it. */
+@media (max-width: 1350px) {
+  #rls-np { flex-wrap: wrap; row-gap: 6px; }
+  #rls-np .rls-info { flex: 1 1 0; }
+  #rls-np .rls-actions { flex: 1 1 100%; margin-left: 57px; flex-wrap: wrap; }
+}
+@media (max-width: 1000px) {
+  #rls-np { margin-left: 16px; padding-left: 14px; }
+  #rls-np .rls-title, #rls-np .rls-track { max-width: 220px; }
+  #rls-np .rls-actions { margin-left: 0; }
+}
+#rls-np .rls-src a { color: inherit; text-decoration: none; }
+#rls-np .rls-src a:hover { text-decoration: underline; }

@@ -262,6 +262,30 @@ function rlsRender() {
     rlsEl("div", { class: "rls-info" }, label, title, track,
       RLS.message ? rlsEl("div", { class: "rls-msg" }, RLS.message) : null),
     actions);
+  rlsFitTitle();
+}
+
+// Share the title line between artist and album: whichever is short keeps its full width,
+// the other gets the rest; if both are long they get half each.
+function rlsFitTitle() {
+  const title = RLS.box && RLS.box.querySelector(".rls-title");
+  if (!title) return;
+  const artist = title.querySelector(".rls-artist");
+  const album = title.querySelector(".album");
+  const sep = title.querySelector(".rls-sep");
+  if (!artist || !album) { if (artist) artist.style.maxWidth = ""; return; }
+  artist.style.maxWidth = album.style.maxWidth = "none";
+  const maxW = parseFloat(getComputedStyle(title).maxWidth) || 360;
+  const avail = maxW - (sep ? sep.offsetWidth : 0);
+  const a = artist.scrollWidth + 1, b = album.scrollWidth + 1; // +1: scrollWidth rounds down
+  if (a + b <= avail) return; // both fit: no limits, no ellipsis
+  const half = avail / 2;
+  let aw, bw;
+  if (a <= half) { aw = a; bw = avail - a; }
+  else if (b <= half) { bw = b; aw = avail - b; }
+  else aw = bw = half;
+  artist.style.maxWidth = Math.floor(aw) + "px";
+  album.style.maxWidth = Math.floor(bw) + "px";
 }
 
 /* ---------- actions ---------- */
@@ -382,6 +406,7 @@ async function rlsMain() {
 
   setInterval(rlsTick, Math.max(15, RLS.settings.refreshSec || 30) * 1000);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) rlsTick(); });
+  window.addEventListener("resize", rlsFitTitle);
 }
 
 if (window.top === window && (window.RLS_TEST_ENV || (typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.id))) {

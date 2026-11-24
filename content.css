@@ -36,15 +36,13 @@
 @keyframes rls-eq { 0%, 100% { height: 3px; } 50% { height: 9px; } }
 @media (prefers-reduced-motion: reduce) { #rls-np .rls-bars i { animation: none; height: 7px; } }
 
-/* Artist and album share one line; the artist gets at most half so the album always shows. */
 #rls-np .rls-title {
   display: flex; font-size: 1.05em; white-space: nowrap; max-width: 360px; min-width: 0;
 }
-#rls-np .rls-artist {
-  font-weight: 700; flex: 0 1 auto; max-width: 50%;
-  overflow: hidden; text-overflow: ellipsis;
-}
-#rls-np .rls-title .album { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+/* Widths are set by rlsFitTitle() in content.js: a short name always shows in full,
+   two long names split the space. */
+#rls-np .rls-artist { font-weight: 700; flex: none; overflow: hidden; text-overflow: ellipsis; }
+#rls-np .rls-title .album { flex: none; overflow: hidden; text-overflow: ellipsis; }
 #rls-np .rls-sep { flex: none; white-space: pre; opacity: 0.6; }
 #rls-np .rls-track {
   font-size: 0.88em; opacity: 0.6;

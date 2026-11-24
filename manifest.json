@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "RYM Now Playing (Last.fm)",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Shows your Last.fm now playing on your RateYourMusic profile, with one click to set it as \"listening to\".",
   "permissions": [
     "storage"

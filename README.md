@@ -1,5 +1,7 @@
 # RYM Now Playing (Last.fm)
 
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/kgaaccfikojkaablmklogdkbdephhacd?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/rym-now-playing-lastfm/kgaaccfikojkaablmklogdkbdephhacd)
+
 A Chrome extension that shows what you're playing on Last.fm inside the **Listening to** card on your own RateYourMusic profile, with one click to set it as your RYM "listening to".
 
 - Now playing (or last played) from Last.fm: cover, artist, album, track
@@ -8,11 +10,13 @@ A Chrome extension that shows what you're playing on Last.fm inside the **Listen
 - No match found: paste the RYM link once, it's remembered
 - Only appears on your own profile; nothing changes on RYM unless you click **Set listening**
 
+![Screenshot](store/screenshot-2.jpg)
+
 Not affiliated with RateYourMusic/Sonemic or Last.fm.
 
 ## Install
 
-**Chrome Web Store:** _link once published_
+**[Install from the Chrome Web Store](https://chromewebstore.google.com/detail/rym-now-playing-lastfm/kgaaccfikojkaablmklogdkbdephhacd)** (works in Chrome, Edge, Brave and other Chromium browsers)
 
 **From source:**
 1. Download or clone this repository.
